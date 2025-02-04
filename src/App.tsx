@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <h1>Gliga Dumitru</h1>
+      <h1>Gliga Dumitru v2</h1>
     </>
   )
 }
