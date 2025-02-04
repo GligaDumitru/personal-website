@@ -1,12 +1,21 @@
-import './App.css'
+import Container from "./components/Container";
+import Header from "./components/Header";
+import Profile, { ProfileProps } from "./components/Profile";
 
-function App() {
+import data from "../data.json";
+import Skills from "./components/Skills";
+const App = () => {
+  const profile = data.profile as ProfileProps;
 
   return (
-    <>
-      <h1>Gliga Dumitru v2</h1>
-    </>
-  )
-}
+    <div className="dark:bg-neutral-900 w-full h-screen">
+      <Header />
+      <Container>
+        <Profile {...profile} />
+        <Skills />
+      </Container>
+    </div>
+  );
+};
 
-export default App
+export default App;
