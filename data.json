@@ -1,10 +1,209 @@
 {
   "profile": {
     "fullName": "Gliga Dumitru",
-    "title": "Software Developer",
+    "title": "Senior Software Engineer",
     "profileDescription": [
-      "I am a seasoned graphic designer with over 14 years of experience in creating visually appealing and user-centric designs. My expertisespans across UI design, design systems, and custom illustrations,helping clients bring their digital visions to life.",
-      "Currently, I work remotely for Notion, where I design template UIs, convert them into HTML and CSS, and provide comprehensive support to our users. I am passionate about crafting elegant and functional designs that enhance user experiences."
+      "Senior Software Engineer with over 6 years of experience - Full stack developer - Front-end enthusiast.",
+      "Proficient in JavaScript/Typescript, React/(Next.js), and Node.js (NestJS and ExpressJS), with a strong analytical approach that transforms complex challenges into efficient applications. Open to new ideas, showing professionalism and seriousness in daily activities. Able to effectively self-manage during independent projects and collaborate in a team. "
+    ]
+  },
+  "timeline": [
+    {
+      "id": 1,
+      "startDate": "Apr, 2024",
+      "endDate": "Present",
+      "employer": "Betfair",
+      "city": "Iasi",
+      "jobTitle": "Contractor Software Engineer",
+      "jobDescription": "Full Stack Developer for a British gambling company client, tasked with maintaining, enhancing, and expanding various REST API microservices applications across front-end and back-end platforms.",
+      "jobResponsibilities": [
+        {
+          "id": 1,
+          "responsibility": "<strong>Frontend Development</strong>: Leveraging <strong>React</strong> and <strong>TypeScript</strong> with <strong>Vite</strong> for fast and efficient development. Implementing robust testing practices using <strong>Vitest</strong> to ensure high-quality code and maintainable applications."
+        },
+        {
+          "id": 2,
+          "responsibility": "<strong>Backend Development</strong>: Developing scalable and performant backend services using <strong>NestJS</strong>. Utilizing <strong>Kafka</strong> for reliable and high-throughput messaging, <strong>Cassandra</strong> for handling large-scale, distributed data storage, <strong>Redis</strong> for efficient caching to enhance application performance, and <strong>Docker</strong> for building and running container applications."
+        },
+        {
+          "id": 3,
+          "responsibility": "<strong>System Architecture</strong>: Designing and implementing end-to-end features, ensuring seamless integration between frontend and backend components."
+        },
+        {
+          "id": 4,
+          "responsibility": "<strong>Code Quality and Performance</strong>: Writing clean, maintainable code with a focus on performance optimization and best practices."
+        },
+        {
+          "id": 5,
+          "responsibility": "<strong>Collaboration and Teamwork</strong>: Working closely with cross-functional teams to deliver high-quality solutions that meet business requirements. I actively participate in code reviews, design discussions, and agile ceremonies."
+        },
+        {
+          "id": 6,
+          "responsibility": "<strong>Continuous Learning and Improvement</strong>: Staying up-to-date with the latest industry trends and technologies to continuously improve the development process and the overall quality of the applications."
+        },
+        {
+          "id": 7,
+          "responsibility": "Other technologies are <strong>Jira</strong>, <strong>Figma</strong>, <strong>GitHub Actions</strong>, <strong>Jest</strong>, <strong>Cypress</strong>, <strong>Stryker Mutator</strong>, <strong>Material UI</strong>, and <strong>React Admin</strong>."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "startDate": "Mar, 2022",
+      "endDate": "Present",
+      "employer": "3PillarGlobal",
+      "city": "Iasi",
+      "jobTitle": "Senior Software Engineer",
+      "jobDescription": "Full Stack Developer for a media trust company client, tasked with maintaining, enhancing, and expanding various REST API microservices applications across front-end and back-end platforms.",
+      "jobResponsibilities": [
+        {
+          "id": 2,
+          "responsibility": "The main technologies&nbsp;are <strong>Jira</strong>, <strong>Figma</strong>, <strong>React</strong>, <strong>Next.js</strong>, <strong>Typescript</strong>, <strong>Node.js</strong>, <strong>ExpressJS</strong>, <strong>Elastic Search</strong>, <strong>Jest</strong>, <strong>Vite</strong>, <strong>Vitest</strong>, <strong>GCP</strong> (Google Functions,&nbsp;Google Buckets, Firebase), and <strong>Terraform</strong>."
+        },
+        {
+          "id": 3,
+          "responsibility": "<strong>Contributed to Continuous Improvement</strong> - Enhanced application performance by updating dependencies, reducing load time, and addressing security concerns, in line with a secure, reliable user experience."
+        },
+        {
+          "id": 4,
+          "responsibility": "<strong>Agile Project Management: </strong>Actively engaged in cross-functional brainstorming sessions over 3 &nbsp;months to identify process inefficiencies, resulting in the implementation of streamlined procedures and a 20% increase in team productivity."
+        },
+        {
+          "id": 5,
+          "responsibility": "<strong>Cross-functional collaboration:</strong> Worked closely with business analysts, development teams, and infrastructure specialists to architect and deliver high-availability solutions."
+        },
+        {
+          "id": 6,
+          "responsibility": "<strong>Code Enhancement:</strong> Utilized advanced skills to optimize and refine existing software through code enhancement, successfully eliminating coding errors and improving functionality. This led to a 25% reduction in bug reports and enhanced user experience within 3 development cycles."
+        },
+        {
+          "id": 7,
+          "responsibility": "<strong>Testing Proficiency:</strong> Showcased testing proficiency by executing thorough unit tests and &nbsp;End-to-End (E2E) tests, guaranteeing robust software quality and superior performance. This effort contributed to a 20% reduction in post-release issues and enhanced user satisfaction within 3 months using <strong>Jest, Cypress, and Sentry.io.</strong>"
+        },
+        {
+          "id": 8,
+          "responsibility": "<strong>UI Enhancement: </strong>Leveraged advanced tools including <strong>React</strong>, <strong>Redux</strong>, and <strong>Styled-Components</strong> to translate Figma design concepts into polished UI components, &nbsp;optimizing overall system performance and user engagement."
+        },
+        {
+          "id": 9,
+          "responsibility": "<strong>Package Management:</strong> Over a dedicated 4-month period, expertly crafted and diligently managed an NPM package for an advanced React-based rich text editor. This endeavor substantially enriched the development landscape by simplifying and accelerating the content creation of articles, effectively reducing feature implementation time and enhancing cross-team collaboration with <strong>NPM</strong>, <strong>React</strong>, and <strong>CKEditor5</strong>."
+        },
+        {
+          "id": 10,
+          "responsibility": "<strong>CI/CD pipeline integration: </strong>Over 3 months, adeptly orchestrated an end-to-end CI/CD pipeline for a project encompassing both a&nbsp;React frontend and a microservice API built with Node.js. Seamlessly integrated code base testing, automatic deployment, and production release procedures through the Jenkins pipelines."
+        },
+        {
+          "id": 11,
+          "responsibility": "<strong>Technical Interviews and Mentoring:</strong> Over a couple of months, I played a role in cultivating team growth and expertise by participating in technical interviews to assess potential candidates. Additionally, as a dedicated mentor to junior developers, I facilitated knowledge transfer, providing guidance and support that led to an increase in their technical proficiency."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "startDate": "Jun, 2021",
+      "endDate": "Mar, 2022",
+      "employer": "Levi9",
+      "city": "Iasi",
+      "jobTitle": "Software Engineer",
+      "jobDescription": "Frontend Developer for a Netherland Fintech company client, tasked with maintaining, enhancing, and expanding various REST API microservices applications across front-end.",
+      "jobResponsibilities": [
+        {
+          "id": 1,
+          "responsibility": "<strong>Contributed to Continuous Improvement:</strong> Generated valuable suggestions and actively engaged in collaborative problem-solving activities to enhance team performance."
+        },
+        {
+          "id": 2,
+          "responsibility": "<strong>Agile Project Management:</strong> Successfully operated within an Agile-driven environment, ensuring adherence to project timelines and optimal resource utilization."
+        },
+        {
+          "id": 3,
+          "responsibility": "<strong>Cross-Functional Collaboration:</strong> Worked closely with business analysts, development teams, and infrastructure specialists to architect and deliver high-availability solutions."
+        },
+        {
+          "id": 4,
+          "responsibility": "<strong>Code Enhancement:</strong> Applied advanced skills to modify and refine existing software, rectifying coding errors and enhancing functionality."
+        },
+        {
+          "id": 5,
+          "responsibility": "<strong>Testing Proficiency:</strong> Conducted meticulous unit tests and End-to-End (<strong>E2E</strong>) tests, ensuring robust software quality and performance."
+        },
+        {
+          "id": 6,
+          "responsibility": "<strong>UI Enhancement:</strong> Elevated user experience by translating provided designs into upgraded UI elements, optimizing overall system performance."
+        },
+        {
+          "id": 7,
+          "responsibility": "<strong>JavaScript Expertise:</strong> Adapted and customized JavaScript plugins to align with project requirements and industry best practices."
+        },
+        {
+          "id": 8,
+          "responsibility": "<strong>Package Management:</strong> Developed and maintained <strong>NPM</strong> packages, contributing to an efficient and modular development ecosystem."
+        },
+        {
+          "id": 9,
+          "responsibility": "<strong>Technology Stack Mastery:</strong> Demonstrated proficiency across a diverse range of technologies including <strong>HTML5</strong>, <strong>Tailwind CSS</strong>, <strong>NextJS</strong>, <strong>ReactJS</strong>, <strong>GraphQL</strong>, <strong>Storybook</strong>, <strong>Jest</strong>, <strong>Cypress</strong>, <strong>Git</strong>, <strong>Jira</strong>, and <strong>Jenkins</strong>."
+        },
+        {
+          "id": 10,
+          "responsibility": "<strong>Efficient Multitasking:</strong> Skillfully balanced multiple tasks while fostering seamless collaboration across internal and external teams."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "startDate": "Feb, 2019",
+      "endDate": "Jun, 2021",
+      "employer": "Endava",
+      "city": "Iasi",
+      "jobTitle": "Front-End Developer",
+      "jobDescription": "Frontend Developer responsible for translating Figma designs into high-quality, responsive user interfaces.",
+      "jobResponsibilities": [
+        {
+          "id": 1,
+          "responsibility": "<strong>Client Collaboration:</strong> Partnered closely with clients throughout development, ensuring seamless integration of required designs."
+        },
+        {
+          "id": 2,
+          "responsibility": "<strong>Agile Project Management:</strong> Thrived in an Agile-driven setting, meticulously adhering to project timelines while optimizing resource allocation."
+        },
+        {
+          "id": 3,
+          "responsibility": "<strong>Cross-Functional Coordination:</strong> Collaborated closely with business analysts, development teams, and infrastructure specialists, contributing to the delivery of high-availability solutions."
+        },
+        {
+          "id": 4,
+          "responsibility": "<strong>Code Enhancement:</strong> Skillfully rectified coding errors by modifying existing software, ensuring code base integrity and functionality."
+        },
+        {
+          "id": 5,
+          "responsibility": "<strong>Testing and UI Improvement:</strong> Conducted thorough unit tests, adapting interfaces to provided designs, and driving enhanced system performance."
+        },
+        {
+          "id": 6,
+          "responsibility": "<strong>Technologies:</strong> Expertly leveraged a technology stack including <strong>HTML5</strong>, <strong>SCSS</strong>, <strong>ReactJS</strong>, <strong>Redux</strong>, <strong>Jest</strong>, <strong>Git</strong>, <strong>Jira</strong>, and <strong>Jenkins</strong>."
+        }
+      ]
+    }
+  ],
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "id": 1,
+        "startDate": "Oct, 2021",
+        "endDate": "Jun, 2024",
+        "institution": "Faculty of Economics and Business Administration of Iasi",
+        "city": "Iasi",
+        "title": "Software Development and Business Information Systems"
+      },
+      {
+        "id": 2,
+        "startDate": "Oct, 2017",
+        "endDate": "Jun, 2020",
+        "institution": "Faculty of Computer Science of Iasi",
+        "city": "Iasi",
+        "title": "Bachelor's degree in Computer Software Engineering"
+      }
     ]
   }
 }
