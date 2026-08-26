@@ -1,4 +1,5 @@
 import { IProjectItem } from "../../../types";
+import { slugify } from "../../../utils/slugify";
 
 const assetUrl = (path: string) =>
   `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${path}`;
@@ -12,7 +13,8 @@ const ProjectItem = ({
 }: IProjectItem) => {
   return (
     <a
-      className="group block relative overflow-hidden rounded-lg border border-gray-200 dark:border-neutral-700"
+      id={slugify(title)}
+      className="group block relative overflow-hidden rounded-lg border border-gray-200 dark:border-neutral-700 scroll-mt-24"
       href={url}
       target="_blank"
       rel="noopener noreferrer"

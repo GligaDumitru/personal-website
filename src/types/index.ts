@@ -52,3 +52,9 @@ export interface IProjects {
   title: string;
   items: IProjectItem[];
 }
+
+export interface ITocItem {
+  id: string;
+  label: string;
+  children?: ITocItem[];
+}

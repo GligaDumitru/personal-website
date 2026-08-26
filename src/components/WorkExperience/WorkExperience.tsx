@@ -3,7 +3,7 @@ import Timeline from "../Timeline";
 
 const WorkExperience = ({ timeline }: IWorkExperience) => {
   return (
-    <div className="mt-10 sm:mt-14">
+    <div id="work-experience" className="mt-10 sm:mt-14 scroll-mt-24">
       <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">
         Work experience
       </h2>
