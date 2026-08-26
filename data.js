@@ -44,7 +44,7 @@ export const aa = {
     {
       id: 1513961,
       title: "Contractor Software Engineer",
-      employer: "Betfair",
+      employer: "XYZ",
       city: "Iaşi",
       dateFrom: "2024-04-01",
       dateUntil: null,
