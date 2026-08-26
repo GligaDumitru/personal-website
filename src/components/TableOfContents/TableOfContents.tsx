@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import { ITocItem } from "../../types";
 
 const flattenIds = (items: ITocItem[]): string[] =>
@@ -49,10 +49,16 @@ const TableOfContents = ({ items }: { items: ITocItem[] }) => {
 
   const activeParentId = activeId ? findParentId(items, activeId) : null;
 
+  const handleClick = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
+    event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    history.pushState(null, "", `#${id}`);
+  };
+
   return (
     <nav
       aria-label="Table of contents"
-      className="hidden lg:block sticky top-24 self-start shrink-0 w-48"
+      className="hidden xl:block fixed top-24 right-8 w-48"
     >
       <p className="mb-3 text-xs font-medium uppercase tracking-wide text-gray-400 dark:text-neutral-600">
         On this page
@@ -64,6 +70,7 @@ const TableOfContents = ({ items }: { items: ITocItem[] }) => {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
+                onClick={(event) => handleClick(event, item.id)}
                 className={`block text-sm transition-colors ${
                   isActive
                     ? "font-medium text-gray-800 dark:text-neutral-200"
@@ -78,6 +85,7 @@ const TableOfContents = ({ items }: { items: ITocItem[] }) => {
                     <li key={child.id}>
                       <a
                         href={`#${child.id}`}
+                        onClick={(event) => handleClick(event, child.id)}
                         className={`block text-sm transition-colors ${
                           child.id === activeId
                             ? "text-gray-800 dark:text-neutral-200"
