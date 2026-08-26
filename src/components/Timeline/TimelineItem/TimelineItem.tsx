@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { ITimelineItem, IJobResponsibility } from "../../../types";
 import RenderHTML from "../../shared/RenderHTML";
 import { slugify } from "../../../utils/slugify";
+import { ChevronDownIcon } from "../../../icons";
+
+const VISIBLE_RESPONSIBILITIES = 3;
 
 const TimelineItem = ({
   startDate,
@@ -11,6 +15,13 @@ const TimelineItem = ({
   jobDescription,
   jobResponsibilities,
 }: ITimelineItem) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const hasMore = jobResponsibilities.length > VISIBLE_RESPONSIBILITIES;
+  const visibleResponsibilities = expanded
+    ? jobResponsibilities
+    : jobResponsibilities.slice(0, VISIBLE_RESPONSIBILITIES);
+
   return (
     <div
       id={slugify(`${jobTitle}-${employer}`)}
@@ -51,7 +62,7 @@ const TimelineItem = ({
           {jobDescription}
         </p>
         <ul className="list-disc ms-6 mt-3 space-y-1.5">
-          {jobResponsibilities.map(
+          {visibleResponsibilities.map(
             ({ id, responsibility }: IJobResponsibility) => (
               <li
                 key={id}
@@ -62,6 +73,24 @@ const TimelineItem = ({
             )
           )}
         </ul>
+
+        {hasMore && (
+          <button
+            type="button"
+            onClick={() => setExpanded((prev) => !prev)}
+            aria-expanded={expanded}
+            className="cursor-pointer mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-gray-600 hover:text-gray-800 focus:outline-none dark:text-neutral-400 dark:hover:text-neutral-200"
+          >
+            {expanded
+              ? "Show less"
+              : `Show ${jobResponsibilities.length - VISIBLE_RESPONSIBILITIES} more`}
+            <ChevronDownIcon
+              className={`size-4 transition-transform ${
+                expanded ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+        )}
       </div>
     </div>
   );

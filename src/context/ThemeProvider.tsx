@@ -1,43 +1,42 @@
 "use client";
 
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+
+export type ThemeMode = "light" | "dark";
 
 interface ThemeContextType {
-  mode: string;
-  setMode: Dispatch<SetStateAction<string>>;
+  mode: ThemeMode;
+  toggleMode: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [mode, setMode] = useState(() => {
-    const isLocalStorageThemeDark = localStorage.theme === "dark";
-    const hasThemeInLocalStorage = "theme" in localStorage;
-    const isPreferedColorSchemeDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
+const getInitialMode = (): ThemeMode => {
+  if (localStorage.theme === "dark" || localStorage.theme === "light") {
+    return localStorage.theme;
+  }
 
-    // Checks local storage and user's preferred color scheme to set initial theme mode.
-    return isLocalStorageThemeDark ||
-      (!hasThemeInLocalStorage && isPreferedColorSchemeDark)
-      ? "dark"
-      : "light";
-  });
+  const prefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  return prefersDark ? "dark" : "light";
+};
+
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const [mode, setMode] = useState<ThemeMode>(getInitialMode);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", mode === "dark");
+    localStorage.theme = mode;
   }, [mode]);
 
+  const toggleMode = () => {
+    setMode((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   return (
-    <ThemeContext.Provider value={{ mode, setMode }}>
+    <ThemeContext.Provider value={{ mode, toggleMode }}>
       {children}
     </ThemeContext.Provider>
   );
