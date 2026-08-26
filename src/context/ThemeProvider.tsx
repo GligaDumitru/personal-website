@@ -18,31 +18,22 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [mode, setMode] = useState("");
-
-  const handleThemeChange = () => {
+  const [mode, setMode] = useState(() => {
     const isLocalStorageThemeDark = localStorage.theme === "dark";
     const hasThemeInLocalStorage = "theme" in localStorage;
     const isPreferedColorSchemeDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
 
-    // Checks local storage and user's preferred color scheme to set initial theme mode,
-    // then applies CSS class for dark or light mode.
-    if (
-      isLocalStorageThemeDark ||
+    // Checks local storage and user's preferred color scheme to set initial theme mode.
+    return isLocalStorageThemeDark ||
       (!hasThemeInLocalStorage && isPreferedColorSchemeDark)
-    ) {
-      setMode("dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      setMode("light");
-      document.documentElement.classList.remove("dark");
-    }
-  };
+      ? "dark"
+      : "light";
+  });
 
   useEffect(() => {
-    handleThemeChange();
+    document.documentElement.classList.toggle("dark", mode === "dark");
   }, [mode]);
 
   return (

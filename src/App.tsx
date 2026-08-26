@@ -3,11 +3,11 @@ import Header from "./components/Header";
 import Profile, { ProfileProps } from "./components/Profile";
 
 import data from "../data.json";
+import Education from "./components/Education";
+import Footer from "./components/Footer";
 import Skills from "./components/Skills";
 import WorkExperience from "./components/WorkExperience";
 import { IEducation, ITimelineItem } from "./types";
-import Education from "./components/Education";
-import Footer from "./components/Footer";
 
 const App = () => {
   const profile = data.profile as ProfileProps;
@@ -15,7 +15,7 @@ const App = () => {
   const education = data.education as IEducation;
 
   return (
-    <div className="dark:bg-neutral-900 w-full h-screen">
+    <div className="dark:bg-neutral-900 w-full min-h-screen">
       <Header />
       <Container>
         <Profile {...profile} />
