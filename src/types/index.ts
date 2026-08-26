@@ -38,3 +38,23 @@ export interface IEducation {
   title: string;
   items: IEducationItem[];
 }
+
+export interface IProjectItem {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  url: string;
+}
+
+export interface IProjects {
+  title: string;
+  items: IProjectItem[];
+}
+
+export interface ITocItem {
+  id: string;
+  label: string;
+  children?: ITocItem[];
+}

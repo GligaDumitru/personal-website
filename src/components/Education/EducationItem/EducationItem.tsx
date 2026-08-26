@@ -1,4 +1,5 @@
 import { IEducationItem } from "../../../types";
+import { slugify } from "../../../utils/slugify";
 
 const EducationItem = ({
   startDate,
@@ -7,7 +8,10 @@ const EducationItem = ({
   title,
 }: IEducationItem) => {
   return (
-    <div className="p-4 border border-gray-200 rounded-lg dark:border-neutral-700">
+    <div
+      id={slugify(title)}
+      className="p-4 border border-gray-200 rounded-lg dark:border-neutral-700 scroll-mt-24"
+    >
       <svg
         className="shrink-0 size-10 mb-3"
         width="400"

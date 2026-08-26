@@ -2,7 +2,7 @@ import { CssIcon, FigmaIcon, HtmlIcon } from "../../icons";
 
 const Skills = () => {
   return (
-    <div className="my-10 sm:my-14">
+    <div id="skills" className="my-10 sm:my-14 scroll-mt-24">
       <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">
         Skills
       </h2>
