@@ -9,7 +9,7 @@ export interface ProfileProps {
 const Profile = ({ fullName, title, profileDescription }: ProfileProps) => {
   return (
     <>
-      <div className="flex items-center gap-x-3">
+      <div className="flex items-center gap-x-3" data-hide-nav-after>
         <div className="shrink-0">
           <img
             className="shrink-0 size-16 rounded-full"
