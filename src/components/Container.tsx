@@ -10,12 +10,12 @@ const Container = ({
   return (
     <div
       className={`w-full mx-auto pt-10 md:pt-16 px-4 sm:px-6 lg:px-8 ${
-        sidebar ? "max-w-2xl lg:max-w-4xl" : "max-w-2xl"
+        sidebar ? "max-w-2xl lg:max-w-6xl" : "max-w-2xl"
       }`}
     >
       {sidebar ? (
-        <div className="lg:flex lg:gap-10 lg:items-start">
-          <div className="min-w-0 flex-1">{children}</div>
+        <div className="lg:flex lg:gap-10 lg:justify-between lg:items-start">
+          <div className="min-w-0 w-full lg:max-w-2xl">{children}</div>
           {sidebar}
         </div>
       ) : (
