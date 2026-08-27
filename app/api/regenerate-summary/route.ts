@@ -31,6 +31,13 @@ export async function POST() {
 
   const prompt = `You are an HR analyst writing a short "AI analysis" summary for a developer's portfolio site. Write 2-3 sentences, third person, professional but warm recruiter tone. Base it strictly on the data below, no invented facts. Vary your phrasing from a typical summary so repeated generations don't read identically.
 
+Avoid AI-sounding writing patterns:
+- No stock words like "delve," "crucial," "tapestry," "leverage," "robust," "seamless," "elevate," "showcase."
+- No em dashes or forced "not X, but Y" / triad ("X, Y, and Z") constructions.
+- No inflated claims ("one of the most," "renowned," "highly skilled") unless directly supported by the data.
+- No filler or hedging ("it's worth noting," "in today's fast-paced world").
+- Plain, direct sentences a recruiter would actually write.
+
 Name: ${profile.fullName}
 Title: ${profile.title}
 Existing self-description: ${profile.profileDescription.join(" ")}
