@@ -11,21 +11,22 @@ const STORAGE_KEY = "ai-summary";
 
 const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
   const [summary, setSummary] = useState(initialSummary);
+  const [isHydrated, setIsHydrated] = useState(false);
   const [isRegenerating, setIsRegenerating] = useState(false);
   const [cooldown, setCooldown] = useState(0);
   const [error, setError] = useState<"failed" | "cooldown" | null>(null);
 
-  // Sync from sessionStorage after mount, same reasoning as ThemeProvider:
-  // this must match server-rendered HTML on first paint, so the swap has
-  // to happen post-hydration, not in the initial useState. Gating the
-  // whole reveal behind a "hydrated" skeleton would avoid the brief flash
-  // this can cause for a returning same-tab visitor, but was measured to
-  // reintroduce a real CLS/LCP cost for every visitor to fix a rare edge
-  // case, so it's a swap-in-place instead.
+  // sessionStorage isn't available during SSR, so this has to run after
+  // mount. Gate the reveal on isHydrated (skeleton until then) so a
+  // visitor with a stored regenerated summary never sees the build-time
+  // default first. The wrapper below reserves min-height matching the
+  // real paragraph's measured wrapped height (220px mobile / 140px
+  // desktop), so this swap doesn't cause layout shift.
   useEffect(() => {
     const stored = sessionStorage.getItem(STORAGE_KEY);
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (stored) setSummary(stored);
+    setIsHydrated(true);
   }, []);
 
   useEffect(() => {
@@ -75,6 +76,7 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
   };
 
   const isWaitingForFirstChunk = isRegenerating && summary.length === 0;
+  const showSkeleton = !isHydrated || isWaitingForFirstChunk;
   const canRegenerate = !isRegenerating && cooldown === 0;
 
   return (
@@ -102,32 +104,36 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
         </button>
       </div>
 
-      {isWaitingForFirstChunk ? (
-        <div className="space-y-1.5 animate-pulse">
-          <div className="h-3 w-full rounded bg-gray-200 dark:bg-neutral-700" />
-          <div className="h-3 w-4/5 rounded bg-gray-200 dark:bg-neutral-700" />
-        </div>
-      ) : (
-        <>
-          <p className="text-sm text-gray-600 dark:text-neutral-400">
-            {summary}
-            {isRegenerating && (
-              <span className="inline-block w-1.5 h-3.5 ml-0.5 bg-gray-400 dark:bg-neutral-500 align-middle animate-pulse" />
+      <div className="min-h-[220px] sm:min-h-[140px]">
+        {showSkeleton ? (
+          <div className="space-y-1.5 animate-pulse">
+            <div className="h-3 w-full rounded bg-gray-200 dark:bg-neutral-700" />
+            <div className="h-3 w-full rounded bg-gray-200 dark:bg-neutral-700" />
+            <div className="h-3 w-full rounded bg-gray-200 dark:bg-neutral-700" />
+            <div className="h-3 w-3/5 rounded bg-gray-200 dark:bg-neutral-700" />
+          </div>
+        ) : (
+          <>
+            <p className="text-sm text-gray-600 dark:text-neutral-400">
+              {summary}
+              {isRegenerating && (
+                <span className="inline-block w-1.5 h-3.5 ml-0.5 bg-gray-400 dark:bg-neutral-500 align-middle animate-pulse" />
+              )}
+            </p>
+            {error === "cooldown" && (
+              <p className="mt-1 text-xs text-gray-500 dark:text-neutral-400">
+                You can only regenerate once every {COOLDOWN_SECONDS}s —
+                please wait.
+              </p>
             )}
-          </p>
-          {error === "cooldown" && (
-            <p className="mt-1 text-xs text-gray-500 dark:text-neutral-400">
-              You can only regenerate once every {COOLDOWN_SECONDS}s — please
-              wait.
-            </p>
-          )}
-          {error === "failed" && (
-            <p className="mt-1 text-xs text-red-500 dark:text-red-400">
-              Couldn&apos;t regenerate right now — try again shortly.
-            </p>
-          )}
-        </>
-      )}
+            {error === "failed" && (
+              <p className="mt-1 text-xs text-red-500 dark:text-red-400">
+                Couldn&apos;t regenerate right now — try again shortly.
+              </p>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };
