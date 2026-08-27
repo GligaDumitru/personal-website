@@ -13,11 +13,15 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
   const [summary, setSummary] = useState(initialSummary);
   const [isRegenerating, setIsRegenerating] = useState(false);
   const [cooldown, setCooldown] = useState(0);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<"failed" | "cooldown" | null>(null);
 
   // Sync from sessionStorage after mount, same reasoning as ThemeProvider:
   // this must match server-rendered HTML on first paint, so the swap has
-  // to happen post-hydration, not in the initial useState.
+  // to happen post-hydration, not in the initial useState. Gating the
+  // whole reveal behind a "hydrated" skeleton would avoid the brief flash
+  // this can cause for a returning same-tab visitor, but was measured to
+  // reintroduce a real CLS/LCP cost for every visitor to fix a rare edge
+  // case, so it's a swap-in-place instead.
   useEffect(() => {
     const stored = sessionStorage.getItem(STORAGE_KEY);
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -35,13 +39,18 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
 
   const handleRegenerate = async () => {
     setIsRegenerating(true);
-    setError(false);
+    setError(null);
     setSummary("");
 
     try {
       const response = await fetch("/api/regenerate-summary", {
         method: "POST",
       });
+
+      if (response.status === 429) {
+        setError("cooldown");
+        return;
+      }
       if (!response.ok || !response.body) throw new Error("request failed");
 
       const reader = response.body.getReader();
@@ -58,7 +67,7 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
       if (!text) throw new Error("empty response");
       sessionStorage.setItem(STORAGE_KEY, text);
     } catch {
-      setError(true);
+      setError("failed");
     } finally {
       setIsRegenerating(false);
       setCooldown(COOLDOWN_SECONDS);
@@ -106,7 +115,13 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
               <span className="inline-block w-1.5 h-3.5 ml-0.5 bg-gray-400 dark:bg-neutral-500 align-middle animate-pulse" />
             )}
           </p>
-          {error && (
+          {error === "cooldown" && (
+            <p className="mt-1 text-xs text-gray-500 dark:text-neutral-400">
+              You can only regenerate once every {COOLDOWN_SECONDS}s — please
+              wait.
+            </p>
+          )}
+          {error === "failed" && (
             <p className="mt-1 text-xs text-red-500 dark:text-red-400">
               Couldn&apos;t regenerate right now — try again shortly.
             </p>

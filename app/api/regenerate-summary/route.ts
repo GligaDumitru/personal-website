@@ -41,8 +41,17 @@ ${roles}
 Output only the summary text, no preamble, no quotes, no markdown.`;
 
   const result = streamText({
-    model: google("gemini-3.6-flash"),
+    // flash-lite: gemini-3.6-flash's free tier caps at 20 requests/day,
+    // too low for a button meant to be clicked repeatedly.
+    model: google("gemini-3.5-flash-lite"),
     prompt,
+    providerOptions: {
+      google: {
+        // Short, non-reasoning task; minimal thinking cuts time-to-first-
+        // token. thinkingBudget: 0 isn't a valid value for this model.
+        thinkingConfig: { thinkingLevel: "minimal" },
+      },
+    },
   });
 
   return createTextStreamResponse({

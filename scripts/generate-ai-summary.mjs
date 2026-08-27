@@ -30,8 +30,11 @@ ${roles}
 Output only the summary text, no preamble, no quotes, no markdown.`;
 
 const { text } = await generateText({
-  model: google("gemini-3.6-flash"),
+  model: google("gemini-3.5-flash-lite"),
   prompt,
+  providerOptions: {
+    google: { thinkingConfig: { thinkingLevel: "minimal" } },
+  },
 });
 
 data.profile.aiSummary = text.trim();
