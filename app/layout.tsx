@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "../src/context/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import data from "../data.json";
+import { ThemeProvider } from "../src/context/ThemeProvider";
 import "../src/index.css";
 
 const { profile, timeline } = data;
@@ -83,6 +85,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>{children}</ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
