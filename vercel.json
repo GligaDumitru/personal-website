@@ -1,0 +1,28 @@
+{
+  "rewrites": [
+    {
+      "source": "/personal-website/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
+      "source": "/personal-website/education/(.*)",
+      "destination": "/education/$1"
+    },
+    {
+      "source": "/personal-website/projects/(.*)",
+      "destination": "/projects/$1"
+    },
+    {
+      "source": "/personal-website/vite.svg",
+      "destination": "/vite.svg"
+    },
+    {
+      "source": "/personal-website",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/personal-website/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
