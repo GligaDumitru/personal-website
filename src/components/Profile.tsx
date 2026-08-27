@@ -1,13 +1,20 @@
 import Image from "next/image";
 import me from "../assets/me.jpg";
+import AiSummary from "./AiSummary";
 
 export interface ProfileProps {
   fullName: string;
   title: string;
   profileDescription: string[];
+  aiSummary?: string;
 }
 
-const Profile = ({ fullName, title, profileDescription }: ProfileProps) => {
+const Profile = ({
+  fullName,
+  title,
+  profileDescription,
+  aiSummary,
+}: ProfileProps) => {
   return (
     <>
       <div className="flex items-center gap-x-3" data-hide-nav-after>
@@ -29,6 +36,7 @@ const Profile = ({ fullName, title, profileDescription }: ProfileProps) => {
           <p className="text-sm text-gray-600 dark:text-neutral-400">{title}</p>
         </div>
       </div>
+      {aiSummary && <AiSummary summary={aiSummary} />}
       <div className="mt-8">
         {profileDescription.map((description, index) => (
           <p

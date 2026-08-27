@@ -5,7 +5,8 @@
     "profileDescription": [
       "Senior Software Engineer with over 6 years of experience - Full stack developer - Front-end enthusiast.",
       "Proficient in JavaScript/Typescript, React/(Next.js), and Node.js (NestJS and ExpressJS), with a strong analytical approach that transforms complex challenges into efficient applications. Open to new ideas, showing professionalism and seriousness in daily activities. Able to effectively self-manage during independent projects and collaborate in a team. "
-    ]
+    ],
+    "aiSummary": "Gliga Dumitru is a Senior Software Engineer with over six years of experience, bringing strong full-stack expertise in JavaScript, TypeScript, React, Next.js, and Node.js. Throughout his work across the media, fintech, and gambling sectors, he has proven adept at building, maintaining, and expanding REST API microservices while transforming complex challenges into efficient applications. Driven by an analytical approach, Gliga excels both as an independent, self-managed engineer and as a collaborative, highly professional team member."
   },
   "timeline": [
     {
@@ -302,7 +303,10 @@
           }
         ],
         "flow": [
-          { "left": "React 19 client", "right": "MDX editor, optimistic UI" },
+          {
+            "left": "React 19 client",
+            "right": "MDX editor, optimistic UI"
+          },
           {
             "left": "Server Action",
             "right": "validate → authorize → transaction",
@@ -312,7 +316,10 @@
             "left": "Mongoose models",
             "right": "Question · Answer · Tag · User"
           },
-          { "left": "MongoDB Atlas", "right": "replica set, for transactions" }
+          {
+            "left": "MongoDB Atlas",
+            "right": "replica set, for transactions"
+          }
         ],
         "flowFooter": {
           "label": "Edge middleware",
