@@ -1,3 +1,5 @@
+"use client";
+
 import { useTheme } from "../../../context/ThemeProvider";
 import { MoonIcon, SunIcon } from "../../../icons";
 

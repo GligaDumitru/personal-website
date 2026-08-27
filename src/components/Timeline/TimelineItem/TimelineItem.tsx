@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { ITimelineItem, IJobResponsibility } from "../../../types";
 import RenderHTML from "../../shared/RenderHTML";

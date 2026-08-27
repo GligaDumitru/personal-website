@@ -10,7 +10,7 @@ const Skills = () => {
       <div className="space-y-3">
         <dl className="flex flex-col sm:flex-row gap-1">
           <dt className="min-w-40">
-            <span className="block text-sm text-gray-500 dark:text-neutral-500">
+            <span className="block text-sm text-gray-500 dark:text-neutral-400">
               Design Tools:
             </span>
           </dt>
@@ -30,7 +30,7 @@ const Skills = () => {
 
         <dl className="flex flex-col sm:flex-row gap-1">
           <dt className="min-w-40">
-            <span className="block text-sm text-gray-500 dark:text-neutral-500">
+            <span className="block text-sm text-gray-500 dark:text-neutral-400">
               Development:
             </span>
           </dt>
@@ -108,7 +108,7 @@ const Skills = () => {
 
         <dl className="flex flex-col sm:flex-row gap-1">
           <dt className="min-w-40">
-            <span className="block text-sm text-gray-500 dark:text-neutral-500">
+            <span className="block text-sm text-gray-500 dark:text-neutral-400">
               Collaboration:
             </span>
           </dt>
@@ -198,7 +198,7 @@ const Skills = () => {
 
         <dl className="flex flex-col sm:flex-row gap-1">
           <dt className="min-w-40">
-            <span className="block text-sm text-gray-500 dark:text-neutral-500">
+            <span className="block text-sm text-gray-500 dark:text-neutral-400">
               Design Expertise:
             </span>
           </dt>
@@ -222,7 +222,7 @@ const Skills = () => {
 
         <dl className="flex flex-col sm:flex-row gap-1">
           <dt className="min-w-40">
-            <span className="block text-sm text-gray-500 dark:text-neutral-500">
+            <span className="block text-sm text-gray-500 dark:text-neutral-400">
               Soft Skills:
             </span>
           </dt>

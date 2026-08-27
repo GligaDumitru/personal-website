@@ -1,3 +1,4 @@
+import Image from "next/image";
 import me from "../assets/me.jpg";
 
 export interface ProfileProps {
@@ -11,10 +12,13 @@ const Profile = ({ fullName, title, profileDescription }: ProfileProps) => {
     <>
       <div className="flex items-center gap-x-3" data-hide-nav-after>
         <div className="shrink-0">
-          <img
+          <Image
             className="shrink-0 size-16 rounded-full"
             src={me}
             alt="Avatar"
+            width={64}
+            height={64}
+            priority
           />
         </div>
 
