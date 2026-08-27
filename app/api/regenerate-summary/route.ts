@@ -1,5 +1,5 @@
 import { google } from "@ai-sdk/google";
-import { generateText } from "ai";
+import { createTextStreamResponse, streamText, toTextStream } from "ai";
 import { NextResponse } from "next/server";
 import data from "../../../data.json";
 
@@ -40,16 +40,12 @@ ${roles}
 
 Output only the summary text, no preamble, no quotes, no markdown.`;
 
-  try {
-    const { text } = await generateText({
-      model: google("gemini-3.6-flash"),
-      prompt,
-    });
-    return NextResponse.json({ summary: text.trim() });
-  } catch {
-    return NextResponse.json(
-      { error: "Failed to generate summary." },
-      { status: 502 }
-    );
-  }
+  const result = streamText({
+    model: google("gemini-3.6-flash"),
+    prompt,
+  });
+
+  return createTextStreamResponse({
+    stream: toTextStream({ stream: result.stream }),
+  });
 }

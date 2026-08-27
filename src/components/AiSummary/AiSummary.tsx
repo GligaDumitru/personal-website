@@ -32,15 +32,26 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
   const handleRegenerate = async () => {
     setIsRegenerating(true);
     setError(false);
+    setSummary("");
 
     try {
       const response = await fetch("/api/regenerate-summary", {
         method: "POST",
       });
-      if (!response.ok) throw new Error("request failed");
+      if (!response.ok || !response.body) throw new Error("request failed");
 
-      const payload: { summary: string } = await response.json();
-      setSummary(payload.summary);
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let text = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        text += decoder.decode(value, { stream: true });
+        setSummary(text);
+      }
+
+      if (!text) throw new Error("empty response");
     } catch {
       setError(true);
     } finally {
@@ -83,15 +94,18 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
         )}
       </div>
 
-      {isBusy ? (
+      {isComputing ? (
         <div className="space-y-1.5 animate-pulse">
           <div className="h-3 w-full rounded bg-gray-200 dark:bg-neutral-700" />
           <div className="h-3 w-4/5 rounded bg-gray-200 dark:bg-neutral-700" />
         </div>
       ) : (
         <>
-          <p className="text-sm text-gray-600 dark:text-neutral-400 transition-opacity duration-300">
+          <p className="text-sm text-gray-600 dark:text-neutral-400">
             {summary}
+            {isRegenerating && (
+              <span className="inline-block w-1.5 h-3.5 ml-0.5 bg-gray-400 dark:bg-neutral-500 align-middle animate-pulse" />
+            )}
           </p>
           {error && (
             <p className="mt-1 text-xs text-red-500 dark:text-red-400">
