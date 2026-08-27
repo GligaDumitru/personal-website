@@ -1,3 +1,5 @@
+"use client";
+
 import { useHideOnScroll } from "../../hooks/useHideOnScroll";
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";

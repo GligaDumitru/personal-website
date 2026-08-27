@@ -1,3 +1,5 @@
+"use client";
+
 import { MouseEvent, useEffect, useState } from "react";
 import { ITocItem } from "../../types";
 
@@ -60,7 +62,7 @@ const TableOfContents = ({ items }: { items: ITocItem[] }) => {
       aria-label="Table of contents"
       className="hidden xl:block fixed top-24 right-8 w-48"
     >
-      <p className="mb-3 text-xs font-medium uppercase tracking-wide text-gray-400 dark:text-neutral-600">
+      <p className="mb-3 text-xs font-medium uppercase tracking-wide text-gray-600 dark:text-neutral-400">
         On this page
       </p>
       <ul className="space-y-3">
@@ -74,7 +76,7 @@ const TableOfContents = ({ items }: { items: ITocItem[] }) => {
                 className={`block text-sm transition-colors ${
                   isActive
                     ? "font-medium text-gray-800 dark:text-neutral-200"
-                    : "text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-200"
+                    : "text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
                 }`}
               >
                 {item.label}
@@ -89,7 +91,7 @@ const TableOfContents = ({ items }: { items: ITocItem[] }) => {
                         className={`block text-sm transition-colors ${
                           child.id === activeId
                             ? "text-gray-800 dark:text-neutral-200"
-                            : "text-gray-500 hover:text-gray-800 dark:text-neutral-500 dark:hover:text-neutral-200"
+                            : "text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200"
                         }`}
                       >
                         {child.label}

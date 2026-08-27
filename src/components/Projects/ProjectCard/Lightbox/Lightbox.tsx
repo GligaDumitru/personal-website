@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { IProjectShot } from "../../../../types";
@@ -30,7 +32,6 @@ const Lightbox = ({ images, index, onClose, onNavigate }: LightboxProps) => {
       document.body.style.overflow = previousOverflow;
       previouslyFocused?.focus();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { IEducationItem } from "../../../types";
 import { slugify } from "../../../utils/slugify";
-import { assetUrl } from "../../../utils/assetUrl";
 import { GraduationCapIcon } from "../../../icons";
 
 const EducationTimelineItem = ({
@@ -24,10 +24,12 @@ const EducationTimelineItem = ({
       <div className="grow pb-8 group-last:pb-0 flex items-start gap-x-3">
         {logo && (
           <div className="size-12 shrink-0 rounded-md border border-gray-200 bg-white p-1.5 shadow-sm dark:border-neutral-700 dark:bg-neutral-800">
-            <img
+            <Image
               className="size-full object-contain"
-              src={assetUrl(logo)}
+              src={`/${logo}`}
               alt={`${institution} logo`}
+              width={150}
+              height={150}
             />
           </div>
         )}

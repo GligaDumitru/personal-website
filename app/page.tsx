@@ -1,18 +1,17 @@
-import Container from "./components/Container";
-import Header from "./components/Header";
-import Profile, { ProfileProps } from "./components/Profile";
-
+import Container from "../src/components/Container";
+import Header from "../src/components/Header";
+import Profile, { ProfileProps } from "../src/components/Profile";
+import Education from "../src/components/Education";
+import Footer from "../src/components/Footer";
+import Projects from "../src/components/Projects";
+import Skills from "../src/components/Skills";
+import TableOfContents from "../src/components/TableOfContents";
+import WorkExperience from "../src/components/WorkExperience";
 import data from "../data.json";
-import Education from "./components/Education";
-import Footer from "./components/Footer";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import TableOfContents from "./components/TableOfContents";
-import WorkExperience from "./components/WorkExperience";
-import { IEducation, IProjects, ITimelineItem, ITocItem } from "./types";
-import { slugify } from "./utils/slugify";
+import { IEducation, IProjects, ITimelineItem, ITocItem } from "../src/types";
+import { slugify } from "../src/utils/slugify";
 
-const App = () => {
+export default function Home() {
   const profile = data.profile as ProfileProps;
   const timeline = data.timeline as ITimelineItem[];
   const education = data.education as IEducation;
@@ -40,7 +39,7 @@ const App = () => {
   ];
 
   return (
-    <div className="dark:bg-neutral-900 w-full min-h-screen">
+    <>
       <Header />
       <Container sidebar={<TableOfContents items={toc} />}>
         <Profile {...profile} />
@@ -50,8 +49,6 @@ const App = () => {
         <WorkExperience timeline={timeline} />
         <Footer />
       </Container>
-    </div>
+    </>
   );
-};
-
-export default App;
+}

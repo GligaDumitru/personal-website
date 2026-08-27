@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { IProjectItem, IProjectShot } from "../../../types";
 import { slugify } from "../../../utils/slugify";
@@ -123,14 +125,12 @@ const ProjectCard = ({
               const isOverflowTile = hasOverflow && index === VISIBLE_SHOTS - 1;
 
               return (
-                <div className="flex flex-col gap-[7px]" key={shot.src}>
+                <div className="flex flex-col gap-[7px]" key={`${shot.src}-${index}`}>
                   <button
                     type="button"
                     onClick={() => setOpenIndex(index + 1)}
                     aria-label={
-                      isOverflowTile
-                        ? `View all ${gallery.length} screenshots`
-                        : `View ${shot.alt} full size`
+                      isOverflowTile ? undefined : `View ${shot.alt} full size`
                     }
                     className="group relative block h-[118px] w-full cursor-zoom-in overflow-hidden rounded-lg border border-gray-200 bg-white dark:border-neutral-800"
                   >
@@ -198,7 +198,7 @@ const ProjectCard = ({
                 <div
                   className={`text-[13px] font-semibold ${
                     row.accent
-                      ? "text-blue-600"
+                      ? "text-blue-600 dark:text-blue-400"
                       : "text-gray-900 dark:text-neutral-50"
                   }`}
                 >
