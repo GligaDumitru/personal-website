@@ -1,8 +1,17 @@
-import FigmaIcon from "./Figma";
-import HtmlIcon from "./Html";
-import CssIcon from "./Css";
-import SunIcon from "./Sun";
-import MoonIcon from "./Moon";
 import ChevronDownIcon from "./ChevronDown";
+import CssIcon from "./Css";
+import FigmaIcon from "./Figma";
+import GraduationCapIcon from "./GraduationCap";
+import HtmlIcon from "./Html";
+import MoonIcon from "./Moon";
+import SunIcon from "./Sun";
 
-export { FigmaIcon, HtmlIcon, CssIcon, SunIcon, MoonIcon, ChevronDownIcon };
+export {
+  ChevronDownIcon,
+  CssIcon,
+  FigmaIcon,
+  GraduationCapIcon,
+  HtmlIcon,
+  MoonIcon,
+  SunIcon,
+};

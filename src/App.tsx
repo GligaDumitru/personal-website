@@ -20,14 +20,7 @@ const App = () => {
 
   const toc: ITocItem[] = [
     { id: "skills", label: "Skills" },
-    {
-      id: "education",
-      label: "Education",
-      children: education.items.map((item) => ({
-        id: slugify(item.title),
-        label: item.title,
-      })),
-    },
+    { id: "education", label: "Education" },
     {
       id: "projects",
       label: "Projects",

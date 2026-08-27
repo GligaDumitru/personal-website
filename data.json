@@ -194,7 +194,8 @@
         "endDate": "Jun, 2024",
         "institution": "Faculty of Economics and Business Administration of Iasi",
         "city": "Iasi",
-        "title": "Software Development and Business Information Systems"
+        "title": "Software Development and Business Information Systems",
+        "logo": "education/logo-fii.png"
       },
       {
         "id": 2,
@@ -202,7 +203,8 @@
         "endDate": "Jun, 2020",
         "institution": "Faculty of Computer Science of Iasi",
         "city": "Iasi",
-        "title": "Bachelor's degree in Computer Software Engineering"
+        "title": "Bachelor's degree in Computer Software Engineering",
+        "logo": "education/logo-fii.png"
       }
     ]
   },
@@ -211,27 +213,111 @@
     "items": [
       {
         "id": 1,
-        "title": "Project One",
-        "description": "Placeholder description for project one. Replace with a short summary of the problem it solves.",
-        "image": "projects/placeholder-1.svg",
-        "tags": ["React", "TypeScript", "Tailwind CSS"],
-        "url": "#"
-      },
-      {
-        "id": 2,
-        "title": "Project Two",
-        "description": "Placeholder description for project two. Replace with a short summary of the problem it solves.",
-        "image": "projects/placeholder-2.svg",
-        "tags": ["Next.js", "Node.js"],
-        "url": "#"
-      },
-      {
-        "id": 3,
-        "title": "Project Three",
-        "description": "Placeholder description for project three. Replace with a short summary of the problem it solves.",
-        "image": "projects/placeholder-3.svg",
-        "tags": ["NestJS", "PostgreSQL"],
-        "url": "#"
+        "year": "2026",
+        "role": "Full-stack, solo",
+        "title": "QHub — community Q&A platform",
+        "description": "Users ask and answer questions with a rich MDX editor, tag topics, browse jobs, and get AI-assisted answer drafts. Auth through GitHub, Google, or credentials, all resolving to one internal account.",
+        "liveUrl": "https://qhub-pqje6mehy-gligadumitrus-projects.vercel.app/",
+        "repoUrl": "https://github.com/GligaDumitru/qhub",
+        "displayUrl": "qhub-pqje6mehy-gligadumitrus-projects.vercel.app",
+        "stack": [
+          {
+            "label": "Frontend",
+            "items": [
+              "Next.js 16",
+              "React 19",
+              "TypeScript",
+              "Tailwind",
+              "shadcn/ui",
+              "MDX"
+            ]
+          },
+          {
+            "label": "Backend",
+            "items": ["MongoDB", "Mongoose", "Server Actions", "REST", "Vercel"]
+          },
+          {
+            "label": "Auth & AI",
+            "items": ["NextAuth v5", "OpenAI", "Ollama"]
+          }
+        ],
+        "hero": {
+          "src": "projects/qhub/hero.svg",
+          "srcDark": "projects/qhub/hero-dark.svg",
+          "alt": "QHub question detail page showing an MDX-rendered answer",
+          "caption": "Question detail — MDX answer view"
+        },
+        "shots": [
+          {
+            "src": "projects/qhub/hero.svg",
+            "srcDark": "projects/qhub/hero-dark.svg",
+            "alt": "QHub ask-a-question flow with the MDX editor live preview",
+            "caption": "MDX editor with live preview"
+          },
+          {
+            "src": "projects/qhub/hero.svg",
+            "srcDark": "projects/qhub/hero-dark.svg",
+            "alt": "QHub AI-assisted answer draft panel",
+            "caption": "AI-assisted answer draft"
+          },
+          {
+            "src": "projects/qhub/hero.svg",
+            "srcDark": "projects/qhub/hero-dark.svg",
+            "alt": "QHub tag browse and job board pages",
+            "caption": "Tag browse and job board"
+          },
+          {
+            "src": "projects/qhub/hero.svg",
+            "srcDark": "projects/qhub/hero-dark.svg",
+            "alt": "QHub answer thread showing question voting",
+            "caption": "Answer thread with voting"
+          },
+          {
+            "src": "projects/qhub/hero.svg",
+            "srcDark": "projects/qhub/hero-dark.svg",
+            "alt": "QHub user profile and reputation page",
+            "caption": "Profile and reputation"
+          },
+          {
+            "src": "projects/qhub/hero.svg",
+            "srcDark": "projects/qhub/hero-dark.svg",
+            "alt": "QHub sign-in page showing GitHub, Google, and credentials providers",
+            "caption": "Sign-in providers"
+          },
+          {
+            "src": "projects/qhub/hero.svg",
+            "srcDark": "projects/qhub/hero-dark.svg",
+            "alt": "QHub saved collections page",
+            "caption": "Saved collections"
+          }
+        ],
+        "notes": [
+          {
+            "title": "Auth on the Edge, without a driver",
+            "body": "Auth callbacks run on Edge middleware, which can't use Mongoose. Session and JWT logic goes through an HTTP layer instead of direct DB calls, so provider IDs from GitHub, Google, and credentials all resolve to one internal user ID."
+          },
+          {
+            "title": "Tags as a diffed many-to-many",
+            "body": "Tags are a many-to-many join, upserted case-insensitively and diffed on edit, all inside one Mongoose transaction — so a failed edit can't leave partial writes behind."
+          }
+        ],
+        "flow": [
+          { "left": "React 19 client", "right": "MDX editor, optimistic UI" },
+          {
+            "left": "Server Action",
+            "right": "validate → authorize → transaction",
+            "accent": true
+          },
+          {
+            "left": "Mongoose models",
+            "right": "Question · Answer · Tag · User"
+          },
+          { "left": "MongoDB Atlas", "right": "replica set, for transactions" }
+        ],
+        "flowFooter": {
+          "label": "Edge middleware",
+          "note": "NextAuth v5 session check over HTTP, beside all of it"
+        }
       }
     ]
   }

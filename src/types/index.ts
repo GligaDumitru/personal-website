@@ -32,6 +32,7 @@ export interface IEducationItem {
   endDate: string;
   title: string;
   institution: string;
+  logo?: string;
 }
 
 export interface IEducation {
@@ -39,13 +40,44 @@ export interface IEducation {
   items: IEducationItem[];
 }
 
+export interface IProjectStackGroup {
+  label: string;
+  items: string[];
+}
+
+export interface IProjectShot {
+  src: string;
+  srcDark?: string;
+  alt: string;
+  caption: string;
+}
+
+export interface IProjectNote {
+  title: string;
+  body: string;
+}
+
+export interface IProjectFlowRow {
+  left: string;
+  right: string;
+  accent?: boolean;
+}
+
 export interface IProjectItem {
   id: number;
+  year: string;
+  role: string;
   title: string;
   description: string;
-  image: string;
-  tags: string[];
-  url: string;
+  liveUrl: string;
+  repoUrl: string;
+  displayUrl: string;
+  stack: IProjectStackGroup[];
+  hero: IProjectShot;
+  shots?: IProjectShot[];
+  notes?: IProjectNote[];
+  flow?: IProjectFlowRow[];
+  flowFooter?: { label: string; note: string };
 }
 
 export interface IProjects {
