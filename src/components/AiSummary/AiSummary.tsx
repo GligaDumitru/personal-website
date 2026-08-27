@@ -7,12 +7,22 @@ export interface AiSummaryProps {
 }
 
 const COOLDOWN_SECONDS = 30;
+const STORAGE_KEY = "ai-summary";
 
 const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
   const [summary, setSummary] = useState(initialSummary);
   const [isRegenerating, setIsRegenerating] = useState(false);
   const [cooldown, setCooldown] = useState(0);
   const [error, setError] = useState(false);
+
+  // Sync from sessionStorage after mount, same reasoning as ThemeProvider:
+  // this must match server-rendered HTML on first paint, so the swap has
+  // to happen post-hydration, not in the initial useState.
+  useEffect(() => {
+    const stored = sessionStorage.getItem(STORAGE_KEY);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (stored) setSummary(stored);
+  }, []);
 
   useEffect(() => {
     if (cooldown <= 0) return;
@@ -46,6 +56,7 @@ const AiSummary = ({ summary: initialSummary }: AiSummaryProps) => {
       }
 
       if (!text) throw new Error("empty response");
+      sessionStorage.setItem(STORAGE_KEY, text);
     } catch {
       setError(true);
     } finally {
