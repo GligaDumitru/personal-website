@@ -5,9 +5,9 @@ Personal site built with Next.js (App Router), statically exported (`output: "ex
 ## Development
 
 ```
-npm run dev     # local dev server
-npm run build   # type-checks and produces the static export in out/
-npm run lint    # eslint
+pnpm dev     # local dev server
+pnpm build   # type-checks and produces the static export in out/
+pnpm lint    # eslint
 ```
 
 ## Stack
